@@ -1,0 +1,43 @@
+How to Run and Test the Project
+
+1.	Open the zip folder and unzip the file to your desktop.
+2.	Install all the needed package requirements shown in figure 12, above.
+3.	Run the program with flask in your IDE:
+a.	Go to the terminal and type set flask_env=development and press ENTER.
+b.	Type flask run and press ENTER.
+4.	Then the program will open in your browser.
+
+REQUIREMENTS
+
+alembic==1.6.5
+bcrypt==3.2.0
+cffi==1.14.5
+click==8.0.1
+dataclasses==0.8
+dnspython==2.1.0
+email-validator==1.1.2
+Flask==2.0.1
+Flask-Bcrypt==0.7.1
+Flask-Login==0.5.0
+Flask-Migrate==3.0.1
+Flask-SQLAlchemy==2.5.1
+Flask-WTF==0.15.1
+Flask-Mail==0.9.0
+greenlet==1.1.0
+idna==3.2
+importlib-metadata==4.3.1
+itsdangerous==2.0.1
+Jinja2==3.0.1
+Mako==1.1.4
+MarkupSafe==2.0.1
+phonenumbers==8.12.24
+pkg-resources==0.0.0
+pycparser==2.20
+python-dateutil==2.8.1
+python-editor==1.0.4
+six==1.16.0
+SQLAlchemy==1.4.17
+typing-extensions==3.10.0.0
+Werkzeug==2.0.1
+WTForms==2.3.3
+zipp==3.4.1

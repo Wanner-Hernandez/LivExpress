@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block head %}
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/register.css')}}"
+/>
+
+{% endblock head %}
+
+{% block content %}
+<div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Login Form</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form method="POST">
+            {{ form.hidden_tag() }}
+  
+            
+            <div class="input_field">
+              
+              <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <!-- <input type="email" name="text" placeholder="Email" required /> -->
+  
+              {% if form.username.errors %} {{ form.username(class="form-control
+              form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+              {% else %} {{form.username(type='text', placeholder='Username')}} {%
+              endif %}
+            </div>
+            
+            <div class="input_field">
+              <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+  
+              {% if form.password.errors %}
+                          {{ form.password(class="form-control form-control-lg is-invalid") }}
+                          <div class="invalid-feedback">
+                              {% for error in form.password.errors %}
+                                  <span>{{ error }}</span>
+                              {% endfor %}
+                          </div>
+                      {% else %}
+                          {{ form.password(placeholder="Password") }}
+                      {% endif %}
+            </div>
+
+            <div class="input_field radio_option">
+                <input type="radio" name="radiogroup1" id="rd1">
+                {{form.remember()}}
+                {{form.remember.label}}
+                <br>
+                <a href="about#contact-form" style="font-size: 10pt;">Forgot Username or Password</a>
+            
+                </div>
+            
+  
+            {{form.submit()}}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

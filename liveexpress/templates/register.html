@@ -1,0 +1,151 @@
+{% extends "base.html" %} {% block head %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/register.css')}}"
+/>
+
+<link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+{% endblock head%} {% block content %}
+<div class="form_wrapper">
+  <div class="form_container">
+    <div class="title_container">
+      <h2>Registration Form</h2>
+    </div>
+    <div class="row clearfix">
+      <div class="">
+        <form method="POST">
+          {{ form.hidden_tag() }}
+
+          <div class="input-field" style="margin-bottom: 10px;">
+            <input id="phone" type="tel" name="phone" />
+          </div>
+          <div class="input_field">
+            
+            <span><i aria-hidden="true" class="fa fa-user"></i></span>
+            <!-- <input type="email" name="text" placeholder="Email" required /> -->
+
+            {% if form.username.errors %} {{ form.username(class="form-control
+            form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.username.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %} {{form.username(type='text', placeholder='Username')}} {%
+            endif %}
+          </div>
+          <div class="input_field">
+            <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+            <!-- <input type="email" name="email" placeholder="Email" required /> -->
+            {% if form.email.errors %} {{ form.email(class="form-control
+            form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.email.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %} {{ form.email(placeholder='email') }} {%
+            endif %}
+          </div>
+          <div class="input_field">
+            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+
+            {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(placeholder="Password") }}
+                    {% endif %}
+          </div>
+          <div class="input_field">
+            <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+            {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(placeholder="Re-type Password") }}
+                    {% endif %}
+          </div>
+          <div class="row clearfix">
+            <div class="col_half">
+              <div class="input_field">
+                <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                {% if form.confirm_password.errors %}
+                        {{ form.fname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.fname.errors %}
+                                <span>{{ error }}</span>
+                                
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    {{form.fname(placeholder='First Name')}}
+                    {% endif %}
+                
+              </div>
+            </div>
+            <div class="col_half">
+              <div class="input_field">
+                <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                {% if form.confirm_password.errors %}
+                        {{ form.lname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.lname.errors %}
+                                <span>{{ error }}</span>
+                                
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                    {{form.lname(placeholder='First Name')}}
+                    {% endif %}
+              </div>
+            </div>
+          </div>
+
+          <div class="input_field select_option">
+            <!-- <select>
+              <option>Select a country</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select> -->
+            {{form.gender.label}} {{form.gender()}}
+            <div class="select_arrow"></div>
+          </div>
+
+          {{form.submit()}}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content%}
+
+{% block bodyscript%}
+<script>
+  const phoneInputField = document.querySelector("#phone");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
+</script>
+{% endblock bodyscript%}

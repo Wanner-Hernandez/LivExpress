@@ -1,0 +1,13 @@
+{% include "base.html" %}
+{% block content %}
+<div class="post_wrapper">
+    <div class="card" style="width: 80%;">
+        <img class="card-img-top" src="{{ url_for('static', filename='blog_pics/' + post.image_file) }}" alt="Card image cap" height="700px">
+        <div class="card-body">
+          <h2 class="card-title" style="color: #0b2341;">{{post.title}}</h2>
+          <p class="card-text">{{post.content}}</p>
+          
+        </div>
+      </div>
+</div>
+{% endblock content %}

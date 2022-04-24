@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block head %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/meet.css')}}"/>
+{% endblock head%}
+
+
+
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="our-team">
+                <img src="/static/images/Franklin.jpg" alt="franco">
+                <ul class="social">
+                    <li><a href="#" class="fab fa-facebook"></a></li>
+                    <li><a href="#" class="fab fa-instagram"></a></li>
+                    <li><a href="#" class="fab fa-google-plus"></a></li>
+                    <li><a href="#" class="fab fa-linkedin"></a></li>
+                    <li><a href="#" class="fab fa-twitter"></a></li>
+                </ul>
+                <div class="team-content">
+                    <h3 class="title">Franklin Nkemjika</h3>
+                    <span class="post">Web Developer</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="our-team">
+                <img src="/static/images/profme.jpg" alt="">
+                <ul class="social">
+                    <li><a href="#" class="fab fa-facebook"></a></li>
+                    <li><a href="#" class="fab fa-instagram"></a></li>
+                    <li><a href="#" class="fab fa-google-plus"></a></li>
+                    <li><a href="#" class="fab fa-linkedin"></a></li>
+                    <li><a href="#" class="fab fa-twitter"></a></li>
+                </ul>
+                <div class="team-content">
+                    <h3 class="title">Catrina Barth</h3>
+                    <span class="post">Web Designer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

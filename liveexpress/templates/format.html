@@ -1,0 +1,407 @@
+{% extends "base.html" %} {% block head %} <!--Extends base.html-->
+
+    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+<title>About</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--link to all the css stylesheets used for the About page-->
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename='css/play.css')}}"
+/>
+{#<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">#}
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/contact.css') }}"
+    />
+
+{% endblock head%}
+
+{% block content %}
+
+<body id="myPage">
+
+<!-- Sidebar on click -->
+{#<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">#}
+{#  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close#}
+{#    <i class="fa fa-remove"></i>#}
+{#  </a>#}
+{#  <a href="#" class="w3-bar-item w3-button">Link 1</a>#}
+{#  <a href="#" class="w3-bar-item w3-button">Link 2</a>#}
+{#  <a href="#" class="w3-bar-item w3-button">Link 3</a>#}
+{#  <a href="#" class="w3-bar-item w3-button">Link 4</a>#}
+{#  <a href="#" class="w3-bar-item w3-button">Link 5</a>#}
+{#</nav>#}
+{##}
+{#<!-- Navbar -->#}
+{#<div class="w3-top">#}
+{# <div class="w3-bar w3-theme-d2 w3-left-align">#}
+{#  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>#}
+{#  <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Logo</a>#}
+{#  <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>#}
+{#  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>#}
+{#  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>#}
+{#  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>#}
+{#    <div class="w3-dropdown-hover w3-hide-small">#}
+{#    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>#}
+{#    <div class="w3-dropdown-content w3-card-4 w3-bar-block">#}
+{#      <a href="#" class="w3-bar-item w3-button">Link</a>#}
+{#      <a href="#" class="w3-bar-item w3-button">Link</a>#}
+{#      <a href="#" class="w3-bar-item w3-button">Link</a>#}
+{#    </div>#}
+{#  </div>#}
+{#  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>#}
+{# </div>#}
+{##}
+{#  <!-- Navbar on small screens -->#}
+{#  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">#}
+{#    <a href="#team" class="w3-bar-item w3-button">Team</a>#}
+{#    <a href="#work" class="w3-bar-item w3-button">Work</a>#}
+{#    <a href="#pricing" class="w3-bar-item w3-button">Price</a>#}
+{#    <a href="#contact" class="w3-bar-item w3-button">Contact</a>#}
+{#    <a href="#" class="w3-bar-item w3-button">Search</a>#}
+{#  </div>#}
+{#</div>#}
+
+<!-- Image Header -->
+<div class="w3-display-container w3-animate-opacity">
+  <img src="/static/images/trip.jpg" alt="boat" style="width:100%;min-height:350px;max-height:600px;">
+</div>
+
+{#<!-- Modal -->#}
+{#<div id="id01" class="w3-modal">#}
+{#  <div class="w3-modal-content w3-card-4 w3-animate-top">#}
+{#    <header class="w3-container w3-teal w3-display-container">#}
+{#      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>#}
+{#      <h4>Oh snap! We just showed you a modal..</h4>#}
+{#      <h5>Because we can <i class="fa fa-smile-o"></i></h5>#}
+{#    </header>#}
+{#    <div class="w3-container">#}
+{#      <p>Cool huh? Ok, enough teasing around..</p>#}
+{#      <p>Go to our <a class="w3-text-teal" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>#}
+{#    </div>#}
+{#    <footer class="w3-container w3-teal">#}
+{#      <p>Modal footer</p>#}
+{#    </footer>#}
+{#  </div>#}
+{#</div>#}
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<h2>MEET YOUR DEVELOPERS</h2>
+<p>Click on the image of the team members to read more about them!</p>
+
+    <!-- Row containing the team profile pics -->
+{#<div class="w3-row"><br>#}
+{##}
+{#<div class="w3-quarter">#}
+{#  <img src="/static/images/Franklin.jpg" alt="Boss" style="width:45%; height: 50%" class="w3-hover-opacity">#}
+{#  <h3>Johnny Walker</h3>#}
+{#  <p>Web Designer</p>#}
+{#</div>#}
+{##}
+{#<div class="w3-quarter">#}
+{#  <img src="/static/images/me2.jpg" alt="Boss" style="width:45%; height: 50%" class="w3-hover-opacity">#}
+{#  <h3>Rebecca Flex</h3>#}
+{#  <p>Support</p>#}
+{#</div>#}
+{##}
+{#<div class="w3-quarter">#}
+{#  <img src="/static/images/Merga.png" alt="Boss" style="width:45%; height: 50%" class="w3-hover-opacity">#}
+{#  <h3>Jan Ringo</h3>#}
+{#  <p>Boss man</p>#}
+{#</div>#}
+{##}
+{#<div class="w3-quarter">#}
+{#  <img src="/static/images/toad.jpg" alt="Boss" style="width:45%; height: 50%" class="w3-hover-opacity">#}
+{#  <h3>Kai Ringo</h3>#}
+{#  <p>Fixer</p>#}
+{#</div>#}
+{##}
+{#<div class="w3-quarter">#}
+{#  <img src="/static/images/me.jpg" alt="Boss" style="width:45%; height: 50%" class="w3-hover-opacity">#}
+{#  <h3>Kai Ringo</h3>#}
+{#  <p>Fixer</p>#}
+{#</div>#}
+{##}
+{#</div>#}
+{#</div>#}
+
+
+    <div class="main">
+
+        <div>
+            <a href="http://www.linkedin.com/in/franklin-nkemjika"><img style="width: 281px; height: 281px" src="/static/images/Franklin.jpg" alt="franco" class="w3-hover-opacity"></a>
+            <h3>Franklin Nkemjika</h3>
+            <p>Software Developer</p>
+        </div>
+
+        <div>
+            <a href="http://www.linkedin.com/in/catrinabarth"><img style="width: 281px; height: 281px" src="/static/images/catB.jpg" alt="franco" class="w3-hover-opacity"></a>
+            <h3>Catrina Barth</h3>
+            <p>Software Developer</p>
+        </div>
+
+        <div>
+            <a href="http://www.linkedin.com/in/mekonnen-merga-0b0279140"><img style="width: 281px; height: 281px" src="/static/images/Merga.png" alt="franco" class="w3-hover-opacity"></a>
+            <h3>Mekonnen Merga</h3>
+            <p>Software Developer</p>
+        </div>
+
+        <div>
+            <a href="http://www.linkedin.com/in/wanner-hernandezriveron-26471920b/"><img style="width: 281px; height: 281px" src="/static/images/wanner.png" alt="franco" class="w3-hover-opacity"></a>
+            <h3>Wanner Hernandez</h3>
+            <p>Software Developer</p>
+        </div>
+
+        <div>
+            <img style="width: 281px; height: 281px" src="/static/images/emp3.jpg" alt="franco" class="w3-hover-opacity">
+            <h3>George Juarez</h3>
+            <p>Software Developer</p>
+        </div>
+
+    </div>
+
+
+
+
+<!-- Work Row -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+<div class="w3-quarter">
+    <h2 style="color:#ed502e"><strong>Our Work</strong></h2>
+    <p style="font-size: 13pt">Have you gone somewhere new lately, or experienced something so fantastic?  Do you want to share it with the world?  Then you have come to the right place!  LivExpress is an open-source community-based platform.  It allows users from all around the world, to post places you have been, that other people must go/try/see/do, etc.  We are starting to see light at the end of the tunnel after being cooped up in the house due to Coronavirus shutting the world down, as well as amongst other, normal, every day life duties rendering us from venturing out in the world.  It is time that you get back to living and seeing the world.  This platform will allow users to post a status with an image to the live feed, sharing your wonderful places you have been to, restaurant that you devoured, to activities, locations, and much more, in which you would like to share your great findings that you saw or experienced, and let others know in case they wanted to get out and try some of these amazing things too.  Now get active and go live for a new and amazing new experience.  If you love it...express it, and spread these things we cherish and live for!</p>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="https://original-content.imgix.net/2020/04/Cabin_Fever.jpg?w=1180" alt="Cabin Fever" style="width:100%">
+  <div class="w3-container">
+      <h3 style="color:#ed502e"><strong>Do You Have a Case of Cabin Fever?</strong></h3>
+  <h4>Ready to get back out there?</h4>
+  <p>I promise you, you are not alone.  Getting outside to smell the fresh air, or take a stroll around the neighborhood was nice...for a while.  But it is time to get back out there.  Check out the link below to see the 17 trips Travel Leisure editors can not wait to take as soon as we are given the green light.</p>
+  <br>
+
+
+<div class="informative-button-wrapper">
+    <a href="https://www.travelandleisure.com/trip-ideas/travel-after-coronavirus-editors-picks"><h1>Click Me</h1></a>
+</div>
+
+  </div>
+  </div>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+
+  <img src="/static/images/escape.jpg" alt="goescape" style="width:75%; height:75%;padding-top: 1.5%">
+  <div class="w3-container">
+  <h3 style="color:#ed502e"><strong>Go Escape Magazine</strong></h3>
+  <h4>USA Today Travel</h4>
+  <p>USA TODAY’s GoEscape Summer magazine is full of ideas for post-pandemic travel and tips on offbeat places, food and festivities.</p>
+
+<div class="informative-button-wrapper">
+    <a href="https://onlinestore.usatoday.com/travel-c1158.aspx"><h1>Click Me</h1></a>
+</div>
+
+  </div>
+  </div>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="https://www.kyruus.com/hs-fs/hubfs/Blog-Photos/Book-Your-Travel.jpg?width=851&height=638&name=Book-Your-Travel.jpg" alt="Mountains" style="width:100%">
+  <div class="w3-container">
+  <h3 style="color:#ed502e"><strong>Where to Book Your Travel?</strong></h3>
+<h4>Travel agencies can help you</h4>
+  <p style="padding-bottom: 12%">There are many travel agencies available to help you book your next trip; such as, Booking.com, Expedia, Hotels.com, and so much more.  Click the link below to see all the travel agencies that can help book your next adventure.</p>
+<div class="informative-button-wrapper">
+    <a href="https://travelsites.com/travelocity/"><h1>Click Me</h1></a>
+</div>
+  </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Container -->
+{#<div class="w3-container" style="position:relative">#}
+{#  <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"#}
+{#  style="position:absolute;top:-28px;right:24px">+</a>#}
+{#</div>#}
+
+{#<!-- Pricing Row -->#}
+{#<div class="w3-row-padding w3-center w3-padding-64" id="pricing">#}
+{#    <h2>PRICING</h2>#}
+{#    <p>Choose a pricing plan that fits your needs.</p><br>#}
+{#    <div class="w3-third w3-margin-bottom">#}
+{#      <ul class="w3-ul w3-border w3-hover-shadow">#}
+{#        <li class="w3-theme">#}
+{#          <p class="w3-xlarge">Basic</p>#}
+{#        </li>#}
+{#        <li class="w3-padding-16"><b>10GB</b> Storage</li>#}
+{#        <li class="w3-padding-16"><b>10</b> Emails</li>#}
+{#        <li class="w3-padding-16"><b>10</b> Domains</li>#}
+{#        <li class="w3-padding-16"><b>Endless</b> Support</li>#}
+{#        <li class="w3-padding-16">#}
+{#          <h2 class="w3-wide"><i class="fa fa-usd"></i> 10</h2>#}
+{#          <span class="w3-opacity">per month</span>#}
+{#        </li>#}
+{#        <li class="w3-theme-l5 w3-padding-24">#}
+{#          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>#}
+{#        </li>#}
+{#      </ul>#}
+{#    </div>#}
+{##}
+{#    <div class="w3-third w3-margin-bottom">#}
+{#      <ul class="w3-ul w3-border w3-hover-shadow">#}
+{#        <li class="w3-theme-l2">#}
+{#          <p class="w3-xlarge">Pro</p>#}
+{#        </li>#}
+{#        <li class="w3-padding-16"><b>25GB</b> Storage</li>#}
+{#        <li class="w3-padding-16"><b>25</b> Emails</li>#}
+{#        <li class="w3-padding-16"><b>25</b> Domains</li>#}
+{#        <li class="w3-padding-16"><b>Endless</b> Support</li>#}
+{#        <li class="w3-padding-16">#}
+{#          <h2 class="w3-wide"><i class="fa fa-usd"></i> 25</h2>#}
+{#          <span class="w3-opacity">per month</span>#}
+{#        </li>#}
+{#        <li class="w3-theme-l5 w3-padding-24">#}
+{#          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>#}
+{#        </li>#}
+{#      </ul>#}
+{#    </div>#}
+{##}
+{#    <div class="w3-third w3-margin-bottom">#}
+{#      <ul class="w3-ul w3-border w3-hover-shadow">#}
+{#        <li class="w3-theme">#}
+{#          <p class="w3-xlarge">Premium</p>#}
+{#        </li>#}
+{#        <li class="w3-padding-16"><b>50GB</b> Storage</li>#}
+{#        <li class="w3-padding-16"><b>50</b> Emails</li>#}
+{#        <li class="w3-padding-16"><b>50</b> Domains</li>#}
+{#        <li class="w3-padding-16"><b>Endless</b> Support</li>#}
+{#        <li class="w3-padding-16">#}
+{#          <h2 class="w3-wide"><i class="fa fa-usd"></i> 50</h2>#}
+{#          <span class="w3-opacity">per month</span>#}
+{#        </li>#}
+{#        <li class="w3-theme-l5 w3-padding-24">#}
+{#          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>#}
+{#        </li>#}
+{#      </ul>#}
+{#    </div>#}
+{#</div>#}
+
+<!-- Contact Container -->
+<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+  <div class="w3-row">
+    <div class="w3-col m5">
+    <div class="w3-padding-16"><span class="w3-xlarge w3-border-teal w3-bottombar">Contact Us</span></div>
+      <h3>Address</h3>
+      <p>We are located all over the world, because we can't sit still.</p>
+      <p><i class="fa fa-map-marker w3-text-teal w3-xlarge"></i>  Glabal</p>
+      <p><i class="fa fa-phone w3-text-teal w3-xlarge"></i>  +tbd</p>
+      <p><i class="fa fa-envelope-o w3-text-teal w3-xlarge"></i>  livexpress.help@gmail.com</p>
+    </div>
+    <div class="w3-col m7">
+{#      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">#}
+{#      <div class="w3-section">#}
+{#        <label>Name</label>#}
+{#        <input class="w3-input" type="text" name="Name" required>#}
+{#      </div>#}
+{#      <div class="w3-section">#}
+{#        <label>Email</label>#}
+{#        <input class="w3-input" type="text" name="Email" required>#}
+{#      </div>#}
+{#      <div class="w3-section">#}
+{#        <label>Message</label>#}
+{#        <input class="w3-input" type="text" name="Message" required>#}
+{#      </div>#}
+{#      <input class="w3-check" type="checkbox" checked name="Like">#}
+{#      <label>I Like it!</label>#}
+{#      <button type="submit" class="w3-button w3-right w3-theme">Send</button>#}
+{#      </form>#}
+
+        <form id="contact-form" method="post" action="/email">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Your email.." required>
+
+                    <label for="reason">Select a Reason</label>
+                    <select id="reason" name="reason">
+                        <option value="other">Other reason...</option>
+                        <option value="email">I want to change my email</option>
+                        <option value="uname">I want to change my username</option>
+                        <option value="pword">I want to change my password</option>
+                    </select>
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                              style="height:170px"></textarea>
+
+                    <input type="submit" value="Submit">
+
+                </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- Image of location/map -->
+<img src="/w3images/map.jpg" class="w3-image w3-greyscale-min" style="width:100%;">
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+  <h4>Follow Us</h4>
+  <a class="w3-button w3-large w3-teal" href="http://facebook.com" title="Facebook"><i class="fa fa-facebook"></i></a>
+  <a class="w3-button w3-large w3-teal" href="http://twitter.com" title="Twitter"><i class="fa fa-twitter"></i></a>
+{#  <a class="w3-button w3-large w3-teal" href="http://google.com" title="Google +"><i class="fa fa-google-plus"></i></a>#}
+  <a class="w3-button w3-large w3-teal" href="http://instagram.com" title="Google +"><i class="fa fa-instagram"></i></a>
+  <a class="w3-button w3-large w3-teal w3-hide-small" href="http://linkedin.com" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+
+
+  <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+</footer>
+{% endblock content%}
+
+{#<script>#}
+// Script for side navigation
+{#function w3_open() {#}
+{#  var x = document.getElementById("mySidebar");#}
+{#  x.style.width = "300px";#}
+{#  x.style.paddingTop = "10%";#}
+{#  x.style.display = "block";#}
+{#}#}
+{##}
+{#// Close side navigation#}
+{#function w3_close() {#}
+{#  document.getElementById("mySidebar").style.display = "none";#}
+{#}#}
+{##}
+{#// Used to toggle the menu on smaller screens when clicking on the menu button#}
+{#function openNav() {#}
+{#  var x = document.getElementById("navDemo");#}
+{#  if (x.className.indexOf("w3-show") == -1) {#}
+{#    x.className += " w3-show";#}
+{#  } else {#}
+{#    x.className = x.className.replace(" w3-show", "");#}
+{#  }#}
+}
+{#</script>#}
+

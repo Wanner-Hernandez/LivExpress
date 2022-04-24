@@ -1,0 +1,57 @@
+{% extends "base.html"%}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/blog.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock head%}
+{% block content%}
+
+{% for post in posts%}
+<div class="container-post">
+    <div class="post">
+        {% if post.author == current_user or current_user.is_admin %}
+        <div class="post-action-container" style="z-index: 55555;">
+            <a class="btn btn-primary" href="{{ url_for('post.update_post', post_id=post.id) }}">Update</a>
+            <form action="{{ url_for('post.delete_post', post_id=post.id) }}" method="POST" style="display: inline;">
+                <input class="btn btn-danger" type="submit" value="Delete">
+              </form>
+            
+        </div>
+        {% endif %}
+        <div class="header_post">
+            <img src="{{ url_for('static', filename='blog_pics/' + post.image_file) }}" alt="">
+        </div>
+
+        <div class="body_post">
+            <div class="post_content">
+
+                <h1>{{post.title}}</h1>
+                <p>{{post.content[:180]}}...
+                </p>
+                <a class="btn btn-primary" href="{{ url_for('post.post', post_id=post.id) }}" role="button">Read More</a>
+
+                <div class="container_infos">
+                    <div class="postedBy">
+                        <span>author</span>
+                        {{post.author.fname}}
+                    </div>
+
+                    <div class="container_tags">
+                        <span>tags</span>
+                        <div class="tags">
+                            <ul>
+                                {% for data in evalify(post.hashtags) %}
+                                <li>{{data}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+    
+{% endblock content%}

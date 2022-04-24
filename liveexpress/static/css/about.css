@@ -1,0 +1,86 @@
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+
+
+img {
+    width: 450px;
+    height: 400px;
+  }
+
+.column {
+  float: inherit;
+  width: 20%;
+  margin-bottom: 150px;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.card {
+  box-shadow: 0 14px 8px 0 rgba(6, 6, 6, 4.2);
+  margin: 8px;
+  padding: 50px;
+  font-family: "Poppins", sans-serif;
+
+}
+
+.about-section {
+  padding: 90px;
+  text-align: center;
+  letter-spacing: 0;
+
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 10px;
+  background-color: black;
+
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  font-family: "Poppins", sans-serif;
+}
+
+
+#button {
+  margin:0 auto;
+  display: block;
+  text-align: center;
+}
+
+temp {
+  margin:0 auto;
+  border: none;
+  outline: 0;
+  display: block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+
+}

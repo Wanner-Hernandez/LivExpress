@@ -1,0 +1,68 @@
+{% include "base.html" %}
+{% block head %}
+<style>
+    body {
+      background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+    }
+    input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .search-container {
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      padding: 20px;
+      width: 60%;
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items:center;
+      margin:15rem auto;
+    }
+    </style>
+{% endblock head%}
+{% block content %}
+
+
+<div class="search-container">
+  <h1>Search The posts</h1>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    
+    {{form.title.label}}
+    {{form.title(placeholder="Search By Title (Optional)")}}
+
+    {{form.hashtags.label}}
+    {{form.hashtags(placeholder="Search By Hashtag (Optional)")}}
+    
+    
+
+    
+    {{form.submit()}}
+    
+  </form>
+</div>
+
+{% endblock content %}

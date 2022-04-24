@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block head %}
+    <!--suppress HtmlUnknownTarget -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+
+    <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/register.css') }}"
+    />
+    <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/contact.css') }}"
+    />
+
+
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+
+
+{% endblock head %}
+
+{% block content %}
+
+    <h2>Responsive Contact Section</h2>
+    <p>Resize the browser window to see the effect.</p>
+
+
+
+    <div class="container">
+        <div style="text-align:center">
+            <p></p>
+            <h2>Contact Us</h2>
+            <p>Swing by for a cup of coffee, or leave us a message:</p>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="/static/images/email.png" alt="maillogo" style="width:100%">
+            </div>
+            <div class="column">
+                <form id="contact-form" method="post" action="/email">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Your email.." required>
+
+                    <label for="reason">Select a Reason</label>
+                    <select id="reason" name="reason">
+                        <option value="other">Other reason...</option>
+                        <option value="email">I want to change my email</option>
+                        <option value="uname">I want to change my username</option>
+                        <option value="pword">I want to change my password</option>
+                    </select>
+                    <label for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                              style="height:170px"></textarea>
+
+                    <input type="submit" value="Submit">
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

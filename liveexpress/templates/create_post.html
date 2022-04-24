@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block head %}
+    <style>
+    body {
+      background: linear-gradient(to top left, #339966 0%, #ffff66 100%);
+    }
+
+    </style>
+{% endblock head%}
+{% block content %}
+
+    <div class="post_wrapper">
+    <div class="post_wrapper">
+        <div class="wrapper">
+            <h3>Your hashtags</h3>
+            <p class="info">Type your hashtag & click enter.</p>
+            <input type="text" id="hashtags" autocomplete="off">
+            <div class="tag-container">
+            </div>
+          </div>
+        <form method="POST" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            {{ form.csrf_token }}
+            <input type="hidden" name="hidden-values">
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.content.label(class="form-control-label") }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{form.image.label}}
+                {{form.image}}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+            
+              
+          </form>
+    </div>
+    <script>
+        let input, hashtagArray, container, t;
+
+input = document.querySelector('#hashtags');
+container = document.querySelector('.tag-container');
+hashtagArray = [];
+
+input.addEventListener('keyup', () => {
+    if (event.which == 13 && input.value.length > 0) {
+      var text = document.createTextNode(input.value);
+      var p = document.createElement('p');
+      var hiddenElem = document.getElementsByName("hidden-values")[0]
+      
+      container.appendChild(p);
+      p.appendChild(text);
+      hashtagArray.push(p.innerText)
+      hiddenElem.setAttribute("value", hashtagArray)
+      console.log(hiddenElem)
+      p.classList.add('tag');
+      input.value = '';
+      
+      let deleteTags = document.querySelectorAll('.tag');
+      console.log(hashtagArray)
+      
+      for(let i = 0; i < deleteTags.length; i++) {
+        deleteTags[i].addEventListener('click', () => {
+          container.removeChild(deleteTags[i]);
+        });
+      }
+    }
+});
+    </script>
+{% endblock content %}
